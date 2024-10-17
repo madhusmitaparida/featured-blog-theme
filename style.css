@@ -1,0 +1,286 @@
+/*
+Theme Name: Featured Blog Theme
+Theme URI: http://example.com
+Author: Madhusmita Parida
+Author URI: http://example.com
+Description: A custom WordPress theme for a featured blog layout.
+Version: 1.0
+Text Domain: featured-blog-theme
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.featured-blog-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.first-row, .second-row {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
+
+.first-row .column {
+    flex: 1;
+}
+
+.second-row .column {
+    flex: 1;
+}
+
+.second-row .large-column {
+    flex: 2;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h3 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+}
+
+p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .first-row, .second-row {
+        flex-direction: column;
+    }
+
+    .large-column {
+        flex: 1;
+    }
+}
+
+/* Style for the header */
+.site-header {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Align logo and menu */
+    align-items: center; /* Center items vertically */
+    padding: 0 20px;
+}
+
+/* Style the logo */
+.site-logo img {
+    max-width: 150px; /* Adjust size as needed */
+    height: auto;
+}
+
+/* Style the menu */
+.main-navigation {
+    flex-grow: 1; /* Make the menu take up remaining space */
+}
+
+.main-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-navigation ul li {
+    margin-right: 20px;
+}
+
+.main-navigation ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #333;
+    padding: 10px;
+}
+
+.main-navigation ul li a:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the left on smaller screens */
+    }
+
+    .main-navigation ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-navigation ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .site-logo {
+        margin-top: 20px;
+    }
+}
+
+
+/* General layout for the post grid */
+.featured-blog-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+/* First 3 posts in separate columns */
+.column {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Large column for the last post in the second row */
+.large-column {
+    grid-column: span 2; /* Spans 2 columns */
+}
+
+/* Post images */
+.column img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 3px solid #007bff; /* Adds a subtle accent */
+}
+
+/* Post titles */
+.column h3 {
+    font-size: 1.5rem;
+    margin: 15px;
+    color: #333;
+    font-weight: bold;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+/* Post excerpt */
+.column p {
+    font-size: 1rem;
+    margin: 0 15px 15px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Hover effect */
+.column:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Links */
+.column a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.column a:hover h3 {
+    color: #007bff; /* Changes the title color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .featured-blog-layout {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+    }
+
+    .large-column {
+        grid-column: span 2; /* Spans two columns on tablet */
+    }
+}
+
+@media (max-width: 768px) {
+    .featured-blog-layout {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+
+    .large-column {
+        grid-column: span 1; /* Single column on mobile */
+    }
+}
+
+/* Optional: Better spacing for mobile */
+@media (max-width: 768px) {
+    .column h3, .column p {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .column {
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Layout for the content area with the sidebar */
+.content-area {
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* Main content takes up 3 parts, sidebar 1 part */
+    grid-gap: 30px;
+    padding: 20px;
+}
+
+/* Styling the sidebar */
+.sidebar {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.sidebar ul li a:hover {
+    color: #007bff;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .content-area {
+        grid-template-columns: 1fr; /* Stack content and sidebar vertically on smaller screens */
+    }
+}
